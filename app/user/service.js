@@ -6,7 +6,8 @@ module.exports = {
     const db = Postgres.db;
     db.connect();
     db.query(
-      `SELECT * from auth WHERE name='${name}' AND address='${address}'AND gender='${gender}'`,
+        
+      `SELECT * from user WHERE name='${name}' AND address='${address}'AND gender='${gender}'`,
       (err, res) => {
         db.end();
         console.log(err, res);
