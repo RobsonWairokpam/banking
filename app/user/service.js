@@ -1,12 +1,24 @@
 const { Postgres } = require("../../config/pg");
 
 module.exports = {
-  User(body, callback) {
+  Add_User(body, callback) {
     const { name,address,gender } = body;
     const db = Postgres.db;
     db.connect();
     db.query(
-      `SELECT * from user WHERE name='${name}' AND address='${address}'AND gender='${gender}'`,
+      `SELECT * from user WHERE  name='${name}' AND address='${address}'AND gender='${gender}'`,
+      (err, res) => {
+        db.end();
+        console.log(err, res);
+        callback(err, 200, res);
+      }
+    );
+  },
+  User_Get(body,callback) {
+    const id=body;
+    db.connect();
+    db.query(
+      `SELECT * from user WHERE id ='${id}'`,
       (err, res) => {
         db.end();
         console.log(err, res);
@@ -15,18 +27,3 @@ module.exports = {
     );
   },
 };
-module.exports = {
-    User(body, callback) {
-      const { id,name,address,gender } = body;
-      const db = Postgres.db;
-      db.connect();
-      db.query(
-        `SELECT * from user WHERE id='${id}' AND name='${name}' AND address='${address}'AND gender='${gender}'`,
-        (err, res) => {
-          db.end();
-          console.log(err, res);
-          callback(err, 200, res);
-        }
-      );
-    },
-  };

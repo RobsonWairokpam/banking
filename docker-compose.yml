@@ -4,9 +4,11 @@ services:
     build: .
     ports:
       - "4000:4000"
-    # volumes:
-    #   - ./:usr/src/app
+    volumes:
+      - ./:/usr/src/app
     command: ["npm", "run", "server"]
+    networks:
+      - postgres
 
   postgres:
     container_name: postgres_container

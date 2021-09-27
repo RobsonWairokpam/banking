@@ -19,7 +19,9 @@
   "homepage": "https://github.com/nengkhoiba/banking-app-api#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "pg": "^8.7.1"
+    "pg": "^8.7.1",
+    "pg-promise": "^10.11.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
