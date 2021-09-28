@@ -35,3 +35,5 @@ CREATE TABLE "auth" (
   "password" varchar(200),
   "status" varchar(20)
 );
+
+
