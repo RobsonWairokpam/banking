@@ -8,6 +8,9 @@ module.exports = {
     if (!name || name === "") {
       return callback(400, { error: "Name cannot be empty" });
     }
+    if (!address ||address === "") {
+      return callback(400, { error: "address cannot be empty" });
+    }
     const db = Postgres.db;
     const id = uuidv4();
     db.none(
@@ -27,7 +30,7 @@ module.exports = {
     const { name, branch_id,address } = body;
     const db = Postgres.db;
     db.none(
-      `UPDATE branch SET name='${name}'AND address='${address}' WHERE branch_id='${branch_id}' `
+      `UPDATE branch SET name='${name}', address='${address}' WHERE branch_id='${branch_id}' `
     )
       .then((res) => {
         callback(200, { branch_id: branch_id, name:name });
