@@ -5,11 +5,13 @@ const AuthRouter = require("./app/auth/router");
 const UserRouter = require("./app/user/router");
 const RoleRouter = require("./app/role/router");
 const BranchRouter = require("./app/branch/router");
+const StaffRouter = require("./app/staff/router");
 app.use(Express.json());
 app.use("/api/auth", AuthRouter);
 app.use("/api/user", UserRouter);
 app.use("/api/role", RoleRouter);
 app.use("/api/branch", BranchRouter);
+app.use("/api/staff", StaffRouter);
 app.listen(PORT, () => {
   console.log("server running on port: ", PORT);
 });
